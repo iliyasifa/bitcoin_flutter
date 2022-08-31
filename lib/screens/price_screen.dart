@@ -1,5 +1,4 @@
 import 'dart:io' show Platform;
-
 import 'package:bitcoin_flutter/constants/coin_data.dart';
 import 'package:bitcoin_flutter/screens/widgets/make_cards.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,6 +13,12 @@ class PriceScreen extends StatefulWidget {
 
 class _PriceScreenState extends State<PriceScreen> {
   String selectedCurrency = 'USD';
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
 
   DropdownButton<String> androidDropDown() {
     List<DropdownMenuItem<String>> dropDownItems = [];
@@ -72,12 +77,6 @@ class _PriceScreenState extends State<PriceScreen> {
     } catch (e) {
       throw '$e';
     }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getData();
   }
 
   @override
